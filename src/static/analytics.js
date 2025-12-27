@@ -10,10 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const lookupBtn = document.getElementById("lookup-btn");
   const studentStats = document.getElementById("student-stats");
 
-  // Chart instances
-  let enrollmentChartData = null;
-  let utilizationChartData = null;
-
   // Toggle between admin and student views
   adminViewBtn.addEventListener("click", () => {
     adminViewBtn.classList.add("active");
@@ -192,8 +188,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Student lookup functionality
   lookupBtn.addEventListener("click", async () => {
     const email = studentEmailInput.value.trim();
+    const messageDiv = document.getElementById("student-message");
+    
     if (!email) {
-      alert("Please enter a student email");
+      messageDiv.textContent = "Please enter a student email";
+      messageDiv.className = "message error";
+      messageDiv.classList.remove("hidden");
+      setTimeout(() => messageDiv.classList.add("hidden"), 5000);
       return;
     }
 
@@ -201,10 +202,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(
         `/analytics/student/${encodeURIComponent(email)}`
       );
+      
+      if (!response.ok) {
+        throw new Error("Student not found or error loading data");
+      }
+      
       const data = await response.json();
 
       // Show student stats section
       studentStats.classList.remove("hidden");
+      
+      // Hide any previous messages
+      messageDiv.classList.add("hidden");
 
       // Update stat cards
       document.getElementById("student-activities").textContent =
@@ -220,7 +229,11 @@ document.addEventListener("DOMContentLoaded", () => {
       displayStudentActivities(data.activities);
     } catch (error) {
       console.error("Error loading student analytics:", error);
-      alert("Error loading student data. Please check the email and try again.");
+      messageDiv.textContent = "Error loading student data. Please check the email and try again.";
+      messageDiv.className = "message error";
+      messageDiv.classList.remove("hidden");
+      setTimeout(() => messageDiv.classList.add("hidden"), 5000);
+      studentStats.classList.add("hidden");
     }
   });
 

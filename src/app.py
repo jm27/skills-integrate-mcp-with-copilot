@@ -138,18 +138,24 @@ def get_student_analytics(email: str):
     enrolled_activities = []
     total_hours = 0
     
-    # Parse schedule strings to estimate hours per week
-    schedule_hours = {
-        "Fridays, 3:30 PM - 5:00 PM": 1.5,
-        "Tuesdays and Thursdays, 3:30 PM - 4:30 PM": 2.0,
-        "Mondays, Wednesdays, Fridays, 2:00 PM - 3:00 PM": 3.0,
-        "Tuesdays and Thursdays, 4:00 PM - 5:30 PM": 3.0,
-        "Wednesdays and Fridays, 3:30 PM - 5:00 PM": 3.0,
-        "Thursdays, 3:30 PM - 5:00 PM": 1.5,
-        "Mondays and Wednesdays, 4:00 PM - 5:30 PM": 3.0,
-        "Tuesdays, 3:30 PM - 4:30 PM": 1.0,
-        "Fridays, 4:00 PM - 5:30 PM": 1.5
-    }
+    # Helper function to estimate hours from schedule string
+    def estimate_hours(schedule: str) -> float:
+        """Estimate weekly hours from schedule string"""
+        # Count days mentioned
+        days = 0
+        if "Monday" in schedule or "Mondays" in schedule:
+            days += 1
+        if "Tuesday" in schedule or "Tuesdays" in schedule:
+            days += 1
+        if "Wednesday" in schedule or "Wednesdays" in schedule:
+            days += 1
+        if "Thursday" in schedule or "Thursdays" in schedule:
+            days += 1
+        if "Friday" in schedule or "Fridays" in schedule:
+            days += 1
+        
+        # Estimate 1.5 hours per session as default
+        return days * 1.5
     
     for activity_name, activity_data in activities.items():
         if email in activity_data["participants"]:
@@ -157,15 +163,17 @@ def get_student_analytics(email: str):
                 "name": activity_name,
                 "schedule": activity_data["schedule"]
             })
-            total_hours += schedule_hours.get(activity_data["schedule"], 1.5)
+            total_hours += estimate_hours(activity_data["schedule"])
     
+    # Note: attendance_rate and completion_rate are placeholder values
+    # In a real system, these would be calculated from actual attendance/completion data
     return {
         "email": email,
         "total_enrolled": len(enrolled_activities),
         "activities": enrolled_activities,
         "hours_per_week": total_hours,
-        "attendance_rate": 95,  # Mock data
-        "completion_rate": 90   # Mock data
+        "attendance_rate": 95,  # Placeholder - would be calculated from actual data
+        "completion_rate": 90   # Placeholder - would be calculated from actual data
     }
 
 
