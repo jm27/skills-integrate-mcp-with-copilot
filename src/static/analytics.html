@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity Analytics - Mergington High School</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mergington High School</h1>
+      <h2>Activity Analytics Dashboard</h2>
+      <nav class="header-nav">
+        <a href="/static/index.html" class="nav-link">← Back to Activities</a>
+      </nav>
+    </header>
+
+    <main class="analytics-main">
+      <!-- View Toggle -->
+      <section class="view-toggle">
+        <button id="admin-view-btn" class="toggle-btn active">Admin View</button>
+        <button id="student-view-btn" class="toggle-btn">Student View</button>
+      </section>
+
+      <!-- Admin Dashboard -->
+      <div id="admin-dashboard" class="dashboard-view">
+        <section class="stats-cards">
+          <div class="stat-card">
+            <h3>Total Students</h3>
+            <p class="stat-value" id="total-students">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Activities</h3>
+            <p class="stat-value" id="total-activities">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Avg Enrollment</h3>
+            <p class="stat-value" id="avg-enrollment">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Overall Utilization</h3>
+            <p class="stat-value" id="overall-utilization">-</p>
+          </div>
+        </section>
+
+        <section class="chart-section">
+          <div class="chart-container">
+            <h3>Activity Enrollment</h3>
+            <div id="enrollment-chart" class="bar-chart"></div>
+          </div>
+          <div class="chart-container">
+            <h3>Capacity Overview</h3>
+            <div id="utilization-chart" class="pie-chart-text"></div>
+          </div>
+        </section>
+
+        <section class="activity-details">
+          <h3>Activity Details</h3>
+          <div id="activity-details-list"></div>
+        </section>
+      </div>
+
+      <!-- Student Dashboard -->
+      <div id="student-dashboard" class="dashboard-view hidden">
+        <section class="student-lookup">
+          <h3>Student Analytics</h3>
+          <div id="student-message" class="message hidden"></div>
+          <div class="form-group">
+            <label for="student-email">Enter Student Email:</label>
+            <input
+              type="email"
+              id="student-email"
+              placeholder="student@mergington.edu"
+            />
+            <button id="lookup-btn">Get My Analytics</button>
+          </div>
+        </section>
+
+        <section id="student-stats" class="hidden">
+          <div class="stats-cards">
+            <div class="stat-card">
+              <h3>Activities Enrolled</h3>
+              <p class="stat-value" id="student-activities">-</p>
+            </div>
+            <div class="stat-card">
+              <h3>Hours per Week</h3>
+              <p class="stat-value" id="student-hours">-</p>
+            </div>
+            <div class="stat-card">
+              <h3>Attendance Rate</h3>
+              <p class="stat-value" id="student-attendance">-</p>
+            </div>
+            <div class="stat-card">
+              <h3>Completion Rate</h3>
+              <p class="stat-value" id="student-completion">-</p>
+            </div>
+          </div>
+
+          <section class="my-activities">
+            <h3>My Activities</h3>
+            <div id="student-activities-list"></div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Mergington High School</p>
+    </footer>
+
+    <script src="analytics.js"></script>
+  </body>
+</html>
