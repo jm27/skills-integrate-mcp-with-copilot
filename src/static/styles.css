@@ -198,3 +198,396 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+/* Navigation Styles */
+.header-nav {
+  margin-top: 15px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Analytics Dashboard Styles */
+.analytics-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.toggle-btn {
+  padding: 12px 30px;
+  background-color: white;
+  color: #1a237e;
+  border: 2px solid #1a237e;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.toggle-btn.active {
+  background-color: #1a237e;
+  color: white;
+}
+
+.toggle-btn:hover {
+  background-color: #3949ab;
+  color: white;
+  border-color: #3949ab;
+}
+
+.dashboard-view {
+  width: 100%;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin-bottom: 10px;
+  color: #1a237e;
+  font-size: 16px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Chart Section */
+.chart-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.chart-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+  margin-bottom: 20px;
+  color: #1a237e;
+  text-align: center;
+}
+
+.chart-container canvas {
+  max-height: 300px;
+}
+
+/* Custom Bar Chart Styles */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.bar-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-label {
+  min-width: 150px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.bars-container {
+  flex: 1;
+  position: relative;
+  height: 30px;
+}
+
+.bar {
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.bar-capacity {
+  background-color: rgba(156, 39, 176, 0.2);
+  border: 1px solid rgba(156, 39, 176, 0.4);
+  z-index: 1;
+}
+
+.bar-enrollment {
+  background-color: rgba(26, 35, 126, 0.8);
+  border: 1px solid rgba(26, 35, 126, 1);
+  color: white;
+  z-index: 2;
+}
+
+/* Custom Pie Chart Styles */
+.pie-chart-text {
+  padding: 20px 0;
+}
+
+.pie-visual {
+  display: flex;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pie-segment {
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.pie-segment.enrolled {
+  background-color: rgba(26, 35, 126, 0.8);
+}
+
+.pie-segment.available {
+  background-color: rgba(229, 229, 229, 0.8);
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.legend-color.enrolled {
+  background-color: rgba(26, 35, 126, 0.8);
+}
+
+.legend-color.available {
+  background-color: rgba(229, 229, 229, 0.8);
+}
+
+.legend-total {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+/* Activity Details */
+.activity-details {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activity-details h3 {
+  margin-bottom: 20px;
+  color: #1a237e;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+#activity-details-list {
+  display: grid;
+  gap: 15px;
+}
+
+.activity-detail-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.activity-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.activity-detail-header h4 {
+  margin: 0;
+  color: #1a237e;
+}
+
+.utilization-badge {
+  padding: 5px 12px;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.activity-detail-stats {
+  margin-top: 10px;
+}
+
+.activity-detail-stats p {
+  margin: 5px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* Student Dashboard */
+.student-lookup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.student-lookup h3 {
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+
+.student-lookup .form-group {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.student-lookup input {
+  flex: 1;
+}
+
+#lookup-btn {
+  white-space: nowrap;
+}
+
+#student-stats {
+  width: 100%;
+}
+
+.my-activities {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.my-activities h3 {
+  margin-bottom: 20px;
+  color: #1a237e;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+#student-activities-list {
+  display: grid;
+  gap: 15px;
+}
+
+.student-activity-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.student-activity-card h4 {
+  margin: 0 0 10px 0;
+  color: #1a237e;
+}
+
+.student-activity-card p {
+  margin: 5px 0;
+}
+
+.no-data {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-section {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .student-lookup .form-group {
+    flex-direction: column;
+  }
+
+  .student-lookup input {
+    width: 100%;
+  }
+}
